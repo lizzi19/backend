@@ -1,0 +1,15 @@
+import java.util.List;
+
+@RestController
+@RequestMapping("/locations")
+public class LocationController {
+
+    @Autowired
+    private LocationService locationService;
+
+    @GetMapping("/cityWithCountry")
+    public ResponseEntity<List<String>> getCityWithCountry() {
+        List<String> cityWithCountry = locationService.getCityWithCountry();
+        return ResponseEntity.ok(cityWithCountry);
+    }
+}
